@@ -38,4 +38,10 @@ public class DeadPiecePane extends VBox {
 	public boolean removePiece(BoardObject bo) {
 		 return bo instanceof Pawn ? pawnRow.getChildren().remove(bo) : otherRow.getChildren().remove(bo);
 	}
+	
+	public void clearPieces() {
+		pawnRow.getChildren().clear();
+		otherRow.getChildren().clear();
+		
+	}
 }

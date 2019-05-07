@@ -18,15 +18,15 @@ public class Model implements Serializable {
 	private ArrayList<BoardObject> deadPieces;
 	private boolean whitesTurn;
 	
-	private String p1Name, p2Name;
+	private Player player1, player2;
 	
 	public Model() {
 		deadPieces = new ArrayList<>();
 		whitesTurn = true;
 		board = new BoardObject[8 * 8];
 		
-		p1Name = "Player1";
-		p2Name = "Player2";
+		player1 = new Player("Player1");
+		player2 = new Player("Player2");
 	}
 	
 	public void createNewBoard() {
@@ -87,22 +87,18 @@ public class Model implements Serializable {
 	public void switchTurns() {
 		whitesTurn = !whitesTurn;
 	}
-
-	public String getPlayer1Name() {
-		return p1Name;
+	
+	//returns the player based on whose turn it is
+	public Player getPlayerByTurn() {
+		return whitesTurn ? player1 : player2;
 	}
-
-	public void setPlayer1Name(String p1Name) {
-		p1Name = p1Name.trim();
-		if(!p1Name.isEmpty()) this.p1Name = p1Name;
+	
+	public Player getPlayer1() {
+		return player1;
 	}
-
-	public String getPlayer2Name() {
-		return p2Name;
+	
+	public Player getPlayer2() {
+		return player2;
 	}
-
-	public void setPlayer2Name(String p2Name) {
-		p2Name = p2Name.trim();
-		if(!p2Name.isEmpty()) this.p2Name = p2Name;
-	}
+	
 }

@@ -32,6 +32,11 @@ public class DeadZonePane extends VBox {
 		this.getChildren().addAll(lPlayer2, blacksDeadPane, whitesDeadPane, lPlayer1);
 	}
 	
+	public void clearDeadBoardObjects() {
+		whitesDeadPane.clearPieces();
+		blacksDeadPane.clearPieces();
+	}
+	
 	public void addDeadBoardObject(BoardObject bo) {
 		if(bo.isWhite()) whitesDeadPane.addPiece(bo);
 		else blacksDeadPane.addPiece(bo);
