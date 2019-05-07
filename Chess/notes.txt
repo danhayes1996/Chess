@@ -1,0 +1,16 @@
+ideas:
+	- main menu (PvP, PvBot, settings?, About?)
+	- save matches at any point 
+		> store: 
+			- current piece locations
+			- whos turn it is
+			- PvP or PvBot (with bot difficulty)
+	- play against bots of different difficulty
+	- replay function 
+		> allows you to watch the moves made in a match
+		> abilities: 
+			- pause/play
+			- change speed of replay
+			- save replays to be watched later?
+	- pop up window when someone wins 
+		> menus: Rematch, Replay, Main Menu
