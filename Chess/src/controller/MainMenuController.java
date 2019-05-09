@@ -10,7 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextInputDialog;
 import model.Model;
-import view.mainmenu.MainRootPane;
+import view.mainmenuroot.MainRootPane;
 
 public class MainMenuController {
 

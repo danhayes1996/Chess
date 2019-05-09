@@ -4,7 +4,7 @@ import javafx.scene.layout.VBox;
 import view.gameroot.gameview.Board;
 import view.gameroot.gameview.DeadZonePane;
 import view.gameroot.gameview.GameView;
-import view.gameroot.meubar.MyMenuBar;
+import view.gameroot.menubar.MyMenuBar;
 
 public class GameRootPane extends VBox {
 	

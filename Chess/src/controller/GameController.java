@@ -9,15 +9,17 @@ import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import model.Model;
 import model.boardObjects.BoardObject;
 import model.boardObjects.King;
 import model.boardObjects.Pawn;
 import view.gameroot.GameRootPane;
+import view.stages.SettingsStage;
 
 public class GameController {
 
@@ -40,6 +42,8 @@ public class GameController {
 	private void assignHandlers() {
 		view.getMenuBar().setSaveHandler(new SaveHandler());
 		view.getMenuBar().setMainMenuHandler(new GoToMainMenuHandler());
+		
+		view.getMenuBar().setMoveIndicatorHandler(new MoveIndicatorSettingsHandler());
 	}
 	
 	private void applyMouseHandlers(BoardObject bo) {
@@ -246,6 +250,13 @@ public class GameController {
 			}
 
 			c.changeScene(c.getMainMenuController().getRoot());
+		}
+	}
+	
+	private class MoveIndicatorSettingsHandler implements EventHandler<ActionEvent> {
+		public void handle(ActionEvent e) {
+			Stage subStage = new SettingsStage(model, c.getPrimaryStage(), "Game Settings");
+			subStage.show();
 		}
 	}
 }

@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.Model;
 import view.gameroot.GameRootPane;
-import view.mainmenu.MainRootPane;
+import view.mainmenuroot.MainRootPane;
 
 public class Controller {
 
@@ -67,6 +67,10 @@ public class Controller {
 	
 	public GameController getGameController() {
 		return gc;
+	}
+	
+	public Stage getPrimaryStage() {
+		return stage;
 	}
 	
 	public Alert createAlert(String title, AlertType alertType, String content, ButtonType... buttons) {
