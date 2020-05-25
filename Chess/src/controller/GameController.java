@@ -35,7 +35,7 @@ public class GameController {
 		assignHandlers();
 	}
 	
-	public void initalize(Controller c) {
+	public void initialize(Controller c) {
 		this.c = c;
 	}
 	
@@ -50,6 +50,7 @@ public class GameController {
 		bo.setMousePressedHandler(new BoardObjectMousePressHandler());
 		bo.setMouseReleasedHandler(new BoardObjectMouseReleaseHandler());
 		bo.setMouseDraggedHandler(new BoardObjectMouseDraggedHandler());
+		bo.setOnMouseEntered(new BoardObjectMouseHoverHandler());
 	}
 	
 	private void removeMouseHandlers(BoardObject bo) {
@@ -77,7 +78,7 @@ public class GameController {
 		}
 	}
 	
-	public void initalizeBoard(boolean assertImages) {
+	public void initializeBoard(boolean assertImages) {
 		view.setPlayerNames(model.getPlayer1().getName(), model.getPlayer2().getName());
 		view.switchTurns(model.isWhitesTurn()); //set whose turn it is
 		
@@ -89,6 +90,10 @@ public class GameController {
 		removeAllPiecesFromView();
 		
 		addAllPiecesToView(assertImages);
+	}
+	
+	private boolean isCurrentPlayersPiece(BoardObject bo) {
+		return (bo.isWhite() && model.isWhitesTurn()) || (!bo.isWhite() && !model.isWhitesTurn());
 	}
 
 	public void setModel(Model model) {
@@ -108,7 +113,7 @@ public class GameController {
 			if(!model.getPlayerByTurn().isMoveHelperActive()) return;
 			
 			//checks if the player has selected one of their pieces 
-			if((source.isWhite() && model.isWhitesTurn()) || (!source.isWhite() && !model.isWhitesTurn())) {
+			if(isCurrentPlayersPiece(source)) {
 				//finds all valid moves and places a red circle in the appropriate location
 				for(int i = 0; i < 8 * 8; i++) {
 					if(source.isValidMove(i % 8, i / 8, model.getBoard()))
@@ -122,7 +127,7 @@ public class GameController {
 		public void handle(MouseEvent e) {
 			BoardObject source = (BoardObject) e.getSource();
 			//only trigger if the right pieces are being moved
-			if((source.isWhite() && model.isWhitesTurn()) || (!source.isWhite() && !model.isWhitesTurn())) {
+			if(isCurrentPlayersPiece(source)) {
 				int currentX = (int)e.getX() / 64;
 				int currentY = (int)e.getY() / 64;
 				
@@ -135,7 +140,7 @@ public class GameController {
 					source.setYOnBoard(source.getYOnBoard());
 				}
 				//remove any circles on the board placed by BoardObjectMousePressHandler
-				view.getBoard().removeCirlces();
+				view.getBoard().removeCircles();
 			}
 		}
 		
@@ -200,7 +205,7 @@ public class GameController {
 			BoardObject source = (BoardObject) e.getSource();
 			
 			//only move if the correct pieces are being moved
-			if((source.isWhite() && model.isWhitesTurn()) || (!source.isWhite() && !model.isWhitesTurn())) {
+			if(isCurrentPlayersPiece(source)) {
 				int mouseX = (int) e.getX();
 				int mouseY = (int) e.getY();
 				
@@ -210,11 +215,20 @@ public class GameController {
 			}
 		}
 	}
-	
-	public class SaveHandler implements EventHandler<ActionEvent> {
+
+	private class BoardObjectMouseHoverHandler implements EventHandler<MouseEvent> {
+		public void handle(MouseEvent e) {
+			BoardObject source = (BoardObject) e.getSource();
+			if(isCurrentPlayersPiece(source)) {
+				source.setStyle("-fx-cursor: hand;");
+			}
+		}
+	}
+
+			public class SaveHandler implements EventHandler<ActionEvent> {
 		public void handle(ActionEvent e) {
 			try {
-				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("res/currentGame.obj"));
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("res/config/currentGame.obj"));
 				oos.writeObject(model);
 				
 				oos.flush();
@@ -229,7 +243,11 @@ public class GameController {
 	
 	private class GoToMainMenuHandler implements EventHandler<ActionEvent> {
 		public void handle(ActionEvent e) {
-			Alert saveAlert = c.createAlert("Save?", AlertType.CONFIRMATION, "Do you wish to save the current game?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+			Alert saveAlert = c.createAlert(
+					"Save?",
+					AlertType.CONFIRMATION,
+					"Do you wish to save the current game?",
+					ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
 			ButtonType result = saveAlert.showAndWait().orElse(ButtonType.CANCEL);
 			
 			if(result.equals(ButtonType.YES)) {

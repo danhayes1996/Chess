@@ -34,14 +34,14 @@ public class Controller {
 		this.gameRoot = new GameRootPane();
 		this.gc = new GameController(gameRoot, model);
 		this.mmc = new MainMenuController(mainRoot, model);
-		initalize();
+		initialize();
 		
 		assignHandlers();
 	}
 	
-	private void initalize() {
-		gc.initalize(this);
-		mmc.initalize(this);
+	private void initialize() {
+		gc.initialize(this);
+		mmc.initialize(this);
 	}
 	
 	private void assignHandlers() {
@@ -59,6 +59,8 @@ public class Controller {
 		this.model = model;
 		gc.setModel(model);
 		mmc.setModel(model);
+
+		this.model.loadSettingsModel();
 	}
 	
 	public MainMenuController getMainMenuController() {
@@ -79,7 +81,7 @@ public class Controller {
 		return a;
 	}
 	
-	public TextInputDialog createTextInputDialog(String title, String header, String content, String defaultValue, Node graphic) {
+	public static TextInputDialog createTextInputDialog(String title, String header, String content, String defaultValue, Node graphic) {
 		TextInputDialog tid = new TextInputDialog(defaultValue);
 		tid.setTitle(title);
 		tid.setHeaderText(header);

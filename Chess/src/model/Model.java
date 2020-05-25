@@ -19,6 +19,8 @@ public class Model implements Serializable {
 	private boolean whitesTurn;
 	
 	private Player player1, player2;
+
+	private transient SettingsModel settingsModel;
 	
 	public Model() {
 		deadPieces = new ArrayList<>();
@@ -51,7 +53,7 @@ public class Model implements Serializable {
 			board[(1 + i * 5) + 7 * 8] = new Knight(1 + i * 5, 7, true);
 		}
 		
-		//knights
+		//bishops
 		for(int i = 0; i < 2; i++) {
 			board[2 + i * 3] = new Bishop(2 + i * 3, 0, false);
 			board[(2 + i * 3) + 7 * 8] = new Bishop(2 + i * 3, 7, true);
@@ -100,5 +102,12 @@ public class Model implements Serializable {
 	public Player getPlayer2() {
 		return player2;
 	}
-	
+
+	public void loadSettingsModel() {
+		settingsModel = SettingsModel.loadFromFile();
+	}
+
+	public SettingsModel getSettingsModel() {
+		return settingsModel;
+	}
 }

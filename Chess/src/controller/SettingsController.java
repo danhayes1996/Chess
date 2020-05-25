@@ -20,7 +20,7 @@ public class SettingsController {
 		assignHandlers();
 	}
 	
-	public void initalize(Controller c) {
+	public void initialize(Controller c) {
 		this.c = c;
 	}
 	

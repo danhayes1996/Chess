@@ -29,10 +29,10 @@ public class Board extends Pane {
 	}
 
 	public void addCircle(int x, int y, int radius) {
-		this.getChildren().add(new Circle(x , y, radius, Color.RED));
+		this.getChildren().add(new Circle(x , y, radius, Color.DARKSLATEGREY));
 	}
 	
-	public void removeCirlces() {
+	public void removeCircles() {
 		this.getChildren().removeIf(n -> n instanceof Circle);
 	}
 }
