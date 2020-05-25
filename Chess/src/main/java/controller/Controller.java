@@ -11,7 +11,6 @@ import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.Model;
-import model.SettingsModel;
 import view.gameroot.GameRootPane;
 import view.mainmenuroot.MainRootPane;
 

@@ -20,8 +20,8 @@ public class GameRootPane extends VBox {
 	
 	public void displayCurrentPlayersTurn(boolean whitesTurn) {
 		//TODO: sort out CSS Error parsing warning
-		gv.getDeadZonePane().getPlayer1Label().setStyle("-fx-font-weight: " + (whitesTurn ? "bold;" : "regular;"));
-		gv.getDeadZonePane().getPlayer2Label().setStyle("-fx-font-weight: " + (whitesTurn ? "regular;" : "bold;"));
+		gv.getDeadZonePane().getPlayer1Label().setStyle("-fx-font-weight: " + (whitesTurn ? "bold;" : "normal;"));
+		gv.getDeadZonePane().getPlayer2Label().setStyle("-fx-font-weight: " + (whitesTurn ? "normal;" : "bold;"));
 	}
 	
 	public void setPlayerNames(String player1, String player2) {

@@ -7,7 +7,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import model.boardObjects.BoardObject;
+import model.boardobjects.BoardObject;
 
 public class DeadZonePane extends VBox {
 

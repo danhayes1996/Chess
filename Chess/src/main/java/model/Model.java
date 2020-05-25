@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.List;
-import model.boardObjects.Bishop;
-import model.boardObjects.BoardObject;
-import model.boardObjects.King;
-import model.boardObjects.Knight;
-import model.boardObjects.Pawn;
-import model.boardObjects.Queen;
-import model.boardObjects.Rook;
+import model.boardobjects.Bishop;
+import model.boardobjects.BoardObject;
+import model.boardobjects.King;
+import model.boardobjects.Knight;
+import model.boardobjects.Pawn;
+import model.boardobjects.Queen;
+import model.boardobjects.Rook;
 
 public class Model implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -10,7 +10,7 @@ public class MyMenuBar extends MenuBar {
 
 	private Menu mFile, mOptions, mHelp;
 	private MenuItem miSave, miMainMenu; //mFile MenuItems
-	private MenuItem miMoveIndicator;
+	private MenuItem miSettings;
 
 	public MyMenuBar() {
 		mFile = new Menu("_File");
@@ -19,8 +19,8 @@ public class MyMenuBar extends MenuBar {
 		mFile.getItems().addAll(miSave, miMainMenu);
 		
 		mOptions = new Menu("_Options");
-		miMoveIndicator = new MenuItem("_Move Indicator");
-		mOptions.getItems().add(miMoveIndicator);
+		miSettings = new MenuItem("_Settings");
+		mOptions.getItems().add(miSettings);
 		
 		
 		mHelp = new Menu("_Help");
@@ -36,7 +36,7 @@ public class MyMenuBar extends MenuBar {
 		miMainMenu.setOnAction(e);
 	}
 	
-	public void setMoveIndicatorHandler(EventHandler<ActionEvent> e) {
-		miMoveIndicator.setOnAction(e);
+	public void setSettingsClickHandler(EventHandler<ActionEvent> e) {
+		miSettings.setOnAction(e);
 	}
 }

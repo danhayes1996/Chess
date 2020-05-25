@@ -1,11 +1,9 @@
-package model.boardObjects;
+package model.boardobjects;
 
 import java.io.Serializable;
 
-import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import view.gameroot.images.Images;
 
 public abstract class BoardObject extends ImageView implements Serializable {
@@ -25,7 +23,7 @@ public abstract class BoardObject extends ImageView implements Serializable {
 	}
 	
 	public void assertImage() {
-		//determine which image to use
+		//determine which image to use (used when loading from file as images aren't retained)
 		if(getImage() == null) {
 			switch(value) {
 				case 1 : this.setImage(whiteTeam ? Images.PAWN_W : Images.PAWN_B); break;

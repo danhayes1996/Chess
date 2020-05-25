@@ -14,9 +14,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Model;
-import model.boardObjects.BoardObject;
-import model.boardObjects.King;
-import model.boardObjects.Pawn;
+import model.boardobjects.BoardObject;
+import model.boardobjects.King;
+import model.boardobjects.Pawn;
 import view.gameroot.GameRootPane;
 import view.stages.SettingsStage;
 
@@ -42,7 +42,7 @@ public class GameController {
     view.getMenuBar().setSaveHandler(new SaveHandler());
     view.getMenuBar().setMainMenuHandler(new GoToMainMenuHandler());
 
-    view.getMenuBar().setMoveIndicatorHandler(new MoveIndicatorSettingsHandler());
+    view.getMenuBar().setSettingsClickHandler(new SettingsOpenHandler());
   }
 
   private void applyMouseHandlers(BoardObject bo) {
@@ -244,7 +244,7 @@ public class GameController {
 
   public class SaveHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent e) {
-      try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("currentGame.obj"))) {
+      try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("dummyExternalDir/currentGame.obj"))) {
         oos.writeObject(model);
         oos.flush();
       } catch (IOException ex) {
@@ -283,7 +283,7 @@ public class GameController {
     }
   }
 
-  private class MoveIndicatorSettingsHandler implements EventHandler<ActionEvent> {
+  private class SettingsOpenHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent e) {
       Stage subStage = new SettingsStage(model, c.getPrimaryStage(), "Game Settings");
       subStage.show();

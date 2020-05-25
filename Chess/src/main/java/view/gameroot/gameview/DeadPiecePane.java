@@ -2,8 +2,8 @@ package view.gameroot.gameview;
 
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import model.boardObjects.BoardObject;
-import model.boardObjects.Pawn;
+import model.boardobjects.BoardObject;
+import model.boardobjects.Pawn;
 
 public class DeadPiecePane extends VBox {
 	

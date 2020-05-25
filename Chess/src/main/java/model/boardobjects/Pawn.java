@@ -1,4 +1,4 @@
-package model.boardObjects;
+package model.boardobjects;
 
 import view.gameroot.images.Images;
 

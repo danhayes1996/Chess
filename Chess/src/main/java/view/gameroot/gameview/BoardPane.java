@@ -9,7 +9,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import model.boardObjects.BoardObject;
+import model.boardobjects.BoardObject;
 
 public class BoardPane extends Pane {
 
