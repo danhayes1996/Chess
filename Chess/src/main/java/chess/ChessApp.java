@@ -1,15 +1,14 @@
-package main;
+package chess;
 
 import controller.Controller;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Model;
 import view.mainmenuroot.MainRootPane;
 
 public class ChessApp extends Application {
 	
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Chess Application");
 		primaryStage.setResizable(false);
 		
@@ -20,7 +19,7 @@ public class ChessApp extends Application {
 		primaryStage.sizeToScene();
 		primaryStage.show();
 
-		new Controller(view, new Model());
+		new Controller(view);
 	}
 
 	public void init() {

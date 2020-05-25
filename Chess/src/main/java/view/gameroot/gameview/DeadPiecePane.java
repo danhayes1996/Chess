@@ -42,6 +42,5 @@ public class DeadPiecePane extends VBox {
 	public void clearPieces() {
 		pawnRow.getChildren().clear();
 		otherRow.getChildren().clear();
-		
 	}
 }

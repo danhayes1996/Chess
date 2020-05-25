@@ -4,20 +4,20 @@ import javafx.scene.layout.HBox;
 
 public class GameView extends HBox {
 
-	private Board board;
+	private BoardPane boardPane;
 	private DeadZonePane dz;
 	
 	public GameView() {
 		this.setSpacing(10);
-		board = new Board();
+		boardPane = new BoardPane();
 		dz = new DeadZonePane();
 		
-		this.getChildren().addAll(board, dz);
+		this.getChildren().addAll(boardPane, dz);
 	}
 	
 	
-	public Board getBoard() {
-		return board;
+	public BoardPane getBoardPane() {
+		return boardPane;
 	}
 	
 	public DeadZonePane getDeadZonePane() {

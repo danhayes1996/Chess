@@ -1,16 +1,13 @@
-ideas:
-	- main menu (PvP, PvBot, settings?, About?)
-	- save matches at any point 
-		> store: 
-			- current piece locations
-			- whos turn it is
-			- PvP or PvBot (with bot difficulty)
-	- play against bots of different difficulty
-	- replay function 
-		> allows you to watch the moves made in a match
-		> abilities: 
-			- pause/play
-			- change speed of replay
-			- save replays to be watched later?
-	- pop up window when someone wins 
-		> menus: Rematch, Replay, Main Menu
+todo 1.0:
+    - castle rule (& other rules to lookup)
+    - check / checkmate situations
+    - ui designs & flow charts
+    - global settings (theme, game, etc.)
+    - css styling & add adaptable window size
+
+todo 2.0:
+ - save / replay functionality
+ - pvp online matches
+ - pvb matches
+ - profiles / users
+ - store past matches for replay, career stats, etc. (store in db)

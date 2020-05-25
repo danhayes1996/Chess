@@ -11,11 +11,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import model.boardObjects.BoardObject;
 
-public class Board extends Pane {
+public class BoardPane extends Pane {
 
-	public Board() {
+	public BoardPane() {
 		this.setPrefSize(512, 512);
-		BackgroundImage bi = new BackgroundImage(new Image("board.png", 512, 512, false, true),
+		BackgroundImage bi = new BackgroundImage(new Image("images/board.png", 512, 512, false, true),
 				BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(bi));
 	}

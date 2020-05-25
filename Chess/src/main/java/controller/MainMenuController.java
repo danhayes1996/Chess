@@ -91,7 +91,7 @@ public class MainMenuController {
 
   private class OpenHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent e) {
-      try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("res/config/currentGame.obj"))) {
+      try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("currentGame.obj"))) {
         c.setModel((Model) ois.readObject());
 	  } catch (IOException | ClassNotFoundException ex) {
         ex.printStackTrace();

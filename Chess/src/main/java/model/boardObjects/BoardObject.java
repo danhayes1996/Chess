@@ -100,18 +100,6 @@ public abstract class BoardObject extends ImageView implements Serializable {
 		return (int) this.getFitHeight();
 	}
 
-	public void setMousePressedHandler(EventHandler<MouseEvent> e) {
-		this.setOnMousePressed(e);
-	}
-	
-	public void setMouseReleasedHandler(EventHandler<MouseEvent> e) {
-		this.setOnMouseReleased(e);
-	}
-	
-	public void setMouseDraggedHandler(EventHandler<MouseEvent> e) {
-		this.setOnMouseDragged(e);
-	}
-
 	@Override
 	public String toString() {
 		return "BoardObject:[x=" + x + ", y=" + y + ", value=" + value + ", whiteTeam=" + whiteTeam + ", image=" + this.getImage() + "]";
